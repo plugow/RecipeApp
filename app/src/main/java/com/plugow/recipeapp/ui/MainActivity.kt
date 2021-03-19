@@ -1,4 +1,4 @@
-package com.plugow.recipeapp
+package com.plugow.recipeapp.ui
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -10,8 +10,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
-import com.plugow.recipeapp.ui.fragments.RecipeDetailsScreen
-import com.plugow.recipeapp.ui.fragments.RecipeListScreen
+import com.plugow.recipeapp.ui.fragments.recipe.RecipeDetailsScreen
+import com.plugow.recipeapp.ui.fragments.recipelist.RecipeListScreen
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package com.plugow.recipeapp.ui.fragments
+package com.plugow.recipeapp.ui.fragments.recipelist
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
