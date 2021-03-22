@@ -16,7 +16,7 @@ import com.plugow.recipeapp.ui.components.DEFAULT_IMAGE
 import com.plugow.recipeapp.ui.components.LoadingImage
 
 @Composable
-fun RecipeDetailsScreen(navController: NavController, recipeId: Int?, recipeViewModel: RecipeDetailsViewModel = viewModel()) {
+fun RecipeDetailsScreen(navController: NavController, recipeId: Int?, recipeViewModel: RecipeDetailsViewModel) {
     LaunchedEffect(recipeId) {
         recipeViewModel.getRecipe(recipeId)
     }

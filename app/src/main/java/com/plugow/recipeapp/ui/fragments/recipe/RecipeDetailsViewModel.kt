@@ -36,4 +36,8 @@ class RecipeDetailsViewModel @Inject constructor(private val recipeRepo: RecipeR
         }
     }
 
+    override fun onCleared() {
+        super.onCleared()
+    }
+
 }

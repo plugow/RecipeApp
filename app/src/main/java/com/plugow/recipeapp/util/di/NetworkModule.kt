@@ -19,11 +19,11 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRecipeApi(okHttpClient: OkHttpClient, moshi: Moshi): RecipeApi {
+    fun provideRecipeApi(okHttpClient: OkHttpClient): RecipeApi {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.API_ENDPOINT)
             .client(okHttpClient)
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .addConverterFactory(MoshiConverterFactory.create())
             .build()
             .create(RecipeApi::class.java)
     }
@@ -40,12 +40,6 @@ object NetworkModule {
                 return@addInterceptor chain.proceed(ongoing.build())
             }
             .addInterceptor(loggingInterceptor)
-            .build()
-    }
-
-    @Provides
-    fun provideSerialization(): Moshi {
-        return Moshi.Builder()
             .build()
     }
 

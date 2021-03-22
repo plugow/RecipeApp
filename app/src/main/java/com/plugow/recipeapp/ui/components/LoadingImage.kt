@@ -31,7 +31,7 @@ fun LoadingImage(url: String, @DrawableRes defaultImage: Int, modifier: Modifier
     Glide.with(LocalContext.current)
         .asBitmap()
         .load(url)
-        .diskCacheStrategy(DiskCacheStrategy.ALL)
+//        .diskCacheStrategy(DiskCacheStrategy.ALL)
         .into(object : CustomTarget<Bitmap>() {
             override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                 bitmapState = resource

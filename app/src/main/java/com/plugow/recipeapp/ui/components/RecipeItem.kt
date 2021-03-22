@@ -21,7 +21,7 @@ import com.plugow.recipeapp.data.RecipeItem
 @Composable
 fun RecipeItem(recipeItem: RecipeItem, index: Int, onItemClick: (Int) -> Unit) {
     Card(elevation = 5.dp, shape = RoundedCornerShape(16.dp), modifier = Modifier.padding(8.dp).clickable {
-        onItemClick(index)
+        onItemClick(recipeItem.id)
     }.fillMaxWidth(), contentColor = Color.LightGray) {
         Column(modifier = Modifier.fillMaxWidth()) {
             LoadingImage(url = recipeItem.imageUrl, defaultImage = DEFAULT_IMAGE)
@@ -43,7 +43,8 @@ fun RecipeList(recipes: List<RecipeItem>, onItemClick: (Int) -> Unit) {
             RecipeItem(
                 recipeItem = item,
                 index = index,
-                onItemClick = onItemClick)
+                onItemClick = onItemClick
+            )
 
         }
     }

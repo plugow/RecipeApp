@@ -85,13 +85,12 @@ dependencies {
 
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0-alpha01"
 
     //retrofit
     def retrofit_version = '2.9.0'
-    def moshiJsonConverters_version = "1.8.0"
     def okHttp_version = '4.4.1'
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
-    implementation "com.squareup.moshi:moshi-adapters:$moshiJsonConverters_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttp_version"
 }
