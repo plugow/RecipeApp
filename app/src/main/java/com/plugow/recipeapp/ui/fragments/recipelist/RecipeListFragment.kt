@@ -22,8 +22,8 @@ import com.plugow.recipeapp.ui.components.RecipeList
 import com.plugow.recipeapp.ui.components.SearchView
 
 @Composable
-fun RecipeListScreen(navController: NavController, recipeListViewModel: RecipeListViewModel) {
-    val recipeListState: State<RecipeListState?> = recipeListViewModel.recipes.observeAsState()
+fun RecipeListScreen(navController: NavController, viewModel: RecipeListViewModel) {
+    val recipeListState: State<RecipeListState?> = viewModel.recipes.observeAsState()
     Column(modifier = Modifier.fillMaxWidth()) {
         Row(modifier = Modifier
             .height(50.dp)

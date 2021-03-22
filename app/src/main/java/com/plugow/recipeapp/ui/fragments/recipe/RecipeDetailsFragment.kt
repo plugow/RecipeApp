@@ -21,11 +21,11 @@ import com.plugow.recipeapp.data.RecipeDetailItem
 import com.plugow.recipeapp.ui.components.DEFAULT_IMAGE
 
 @Composable
-fun RecipeDetailsScreen(navController: NavController, recipeId: Int?, recipeViewModel: RecipeDetailsViewModel) {
+fun RecipeDetailsScreen(navController: NavController, recipeId: Int?, viewModel: RecipeDetailsViewModel) {
     LaunchedEffect(recipeId) {
-        recipeViewModel.getRecipe(recipeId)
+        viewModel.getRecipe(recipeId)
     }
-    recipeViewModel.recipeState.observeAsState().value?.let {
+    viewModel.recipeState.observeAsState().value?.let {
         RenderScreen(state = it)
     }
 
