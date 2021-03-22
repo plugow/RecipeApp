@@ -1,9 +1,9 @@
 package com.plugow.recipeapp.ui.fragments.recipe
 
-import com.plugow.recipeapp.data.api.RecipeDto
+import com.plugow.recipeapp.data.RecipeDetailItem
 
 sealed class RecipeState {
     object Loading: RecipeState()
-    class Error(cause: String): RecipeState()
-    class Success(recipe: RecipeDto): RecipeState()
+    class Error(val cause: String): RecipeState()
+    class Success(val recipe: RecipeDetailItem): RecipeState()
 }

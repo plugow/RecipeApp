@@ -4,7 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.plugow.recipeapp.data.RecipeDetailItem
 import com.plugow.recipeapp.data.RecipeId
+import com.plugow.recipeapp.data.api.RecipeDto
+import com.plugow.recipeapp.data.map
 import com.plugow.recipeapp.util.api.repo.RecipeRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +29,9 @@ class RecipeDetailsViewModel @Inject constructor(private val recipeRepo: RecipeR
         viewModelScope.launch {
             _recipeState.value = RecipeState.Loading
             val recipe = withContext(Dispatchers.IO) {
-                recipeRepo.getRecipe(recipeId)
+                recipeRepo.getRecipe(recipeId).map {
+                    it.toRecipeDetailItem()
+                }
             }
             recipe.fold({
                 _recipeState.value = RecipeState.Error("")
@@ -36,8 +41,8 @@ class RecipeDetailsViewModel @Inject constructor(private val recipeRepo: RecipeR
         }
     }
 
-    override fun onCleared() {
-        super.onCleared()
-    }
+}
 
+fun RecipeDto.toRecipeDetailItem(): RecipeDetailItem {
+    return RecipeDetailItem(this.featuredImage, title, rating.toString(), dateUpdated, ingredients)
 }
